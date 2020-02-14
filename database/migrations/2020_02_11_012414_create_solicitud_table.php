@@ -21,6 +21,8 @@ class CreateSolicitudTable extends Migration
             $table->string('descripcion');
             $table->string('estado',1);
             $table->boolean('urgencia');
+            $table->unsignedBigInteger('id_usuario_proveedor');
+            $table->foreign('id_usuario_proveedor')->references('id')->on('usuario');
             $table->unsignedBigInteger('id_usuario');
             $table->foreign('id_usuario')->references('id')->on('usuario');
             $table->unsignedBigInteger('id_oficio');

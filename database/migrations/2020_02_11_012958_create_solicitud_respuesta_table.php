@@ -16,6 +16,8 @@ class CreateSolicitudRespuestaTable extends Migration
         Schema::create('solicitud_respuesta', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->boolean('confirmado');
+            $table->date('fecha');
+            $table->time('hora');
             $table->unsignedBigInteger('id_usuario_proveedor');
             $table->foreign('id_usuario_proveedor')->references('id')->on('usuario');
             $table->unsignedBigInteger('id_solicitud');

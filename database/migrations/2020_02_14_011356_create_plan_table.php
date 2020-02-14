@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOficioTable extends Migration
+class CreatePlanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateOficioTable extends Migration
      */
     public function up()
     {
-        Schema::create('oficio', function (Blueprint $table) {
+        Schema::create('plan', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('descripcion');
-            $table->string('img',255);
-            $table->boolean('estado');
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ class CreateOficioTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('oficio');
+        Schema::dropIfExists('plan');
     }
 }
