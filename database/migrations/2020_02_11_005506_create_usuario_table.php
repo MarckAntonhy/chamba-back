@@ -26,6 +26,8 @@ class CreateUsuarioTable extends Migration
             $table->string('estado',1);
             $table->unsignedBigInteger('id_distrito');
             $table->foreign('id_distrito')->references('id')->on('distrito');
+            $table->unsignedBigInteger('id_rol');
+            $table->foreign('id_rol')->references('id')->on('rol');
             $table->timestamps();
         });
     }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateConfiguracionTable extends Migration
+class CreatePermisoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateConfiguracionTable extends Migration
      */
     public function up()
     {
-        Schema::create('configuracion', function (Blueprint $table) {
+        Schema::create('permiso', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('descripcion');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateConfiguracionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('configuracion');
+        Schema::dropIfExists('permiso');
     }
 }

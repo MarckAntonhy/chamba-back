@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateConfiguracionTable extends Migration
+class CreateRolPermisoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateConfiguracionTable extends Migration
      */
     public function up()
     {
-        Schema::create('configuracion', function (Blueprint $table) {
+        Schema::create('rol_permiso', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('descripcion');
-            $table->string('valor');
+            $table->unsignedBigInteger('id_rol');
+            $table->foreign('id_rol')->references('id')->on('rol');
+            $table->unsignedBigInteger('id_permiso');
+            $table->foreign('id_permiso')->references('id')->on('permiso');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateConfiguracionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('configuracion');
+        Schema::dropIfExists('rol_permiso');
     }
 }
