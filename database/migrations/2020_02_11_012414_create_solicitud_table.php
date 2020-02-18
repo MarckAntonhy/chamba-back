@@ -19,7 +19,6 @@ class CreateSolicitudTable extends Migration
             $table->time('hora',0);
             $table->string('direccion');
             $table->string('descripcion');
-            $table->string('estado',1);
             $table->boolean('urgencia');
             $table->unsignedBigInteger('id_usuario_proveedor');
             $table->foreign('id_usuario_proveedor')->references('id')->on('usuario');
@@ -29,6 +28,8 @@ class CreateSolicitudTable extends Migration
             $table->foreign('id_oficio')->references('id')->on('oficio');
             $table->unsignedBigInteger('id_distrito');
             $table->foreign('id_distrito')->references('id')->on('distrito');
+            $table->unsignedBigInteger('id_estado');
+            $table->foreign('id_estado')->references('id')->on('estado');
             $table->timestamps();
         });
     }

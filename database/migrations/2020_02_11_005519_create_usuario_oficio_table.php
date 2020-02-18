@@ -15,11 +15,12 @@ class CreateUsuarioOficioTable extends Migration
     {
         Schema::create('usuario_oficio', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('estado',1);
             $table->unsignedBigInteger('id_usuario');
             $table->foreign('id_usuario')->references('id')->on('usuario');
             $table->unsignedBigInteger('id_oficio');
             $table->foreign('id_oficio')->references('id')->on('oficio');
+            $table->unsignedBigInteger('id_estado');
+            $table->foreign('id_estado')->references('id')->on('estado');
             $table->timestamps();
         });
     }

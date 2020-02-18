@@ -17,7 +17,8 @@ class CreateOficioTable extends Migration
             $table->bigIncrements('id');
             $table->string('descripcion');
             $table->string('img',255);
-            $table->boolean('estado');
+            $table->unsignedBigInteger('id_estado');
+            $table->foreign('id_estado')->references('id')->on('estado');
             $table->timestamps();
         });
     }
