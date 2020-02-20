@@ -19,4 +19,8 @@ class Plan extends Model
         return $this->belongsTo(Estado::class);
     }
 
+    public function usuarioproveedor(){
+        return $this->belongTo(Usuario::class);
+    }
+
 }

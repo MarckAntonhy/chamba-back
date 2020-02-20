@@ -11,4 +11,12 @@ class Oficio extends Model
     public $fillable = [
         'descripcion'
     ]
+    public function estados(){
+        return $this->belongsTo(Estado::class)
+    }
+
+    public function usuarios(){
+        return $this->belongsToMany(Usuario::class, 'usuario_oficio');
+    }
+    
 }

@@ -10,12 +10,5 @@ class Solicitud_respuesta extends Model
 
     public $fillable = [
         'confirmado'
-    ];
-
-    public function proveedores(){
-        return $this->hasMany(Usuario::class);
-    }
-    public function solicitudes(){
-        return $this->hasMany(Solicitud::class);
-    }
+    ]
 }

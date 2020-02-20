@@ -19,10 +19,20 @@ class Usuario extends Model
     ];
 
     public function distritos(){
-        return $this->hasMany(Distrito::class);
+        return $this->belongsTo(Distrito::class);
     }
 
-    public function oficios(){
-        return $this->belongsToMany(Oficio::class, 'usuario_oficio');
+    public function estados(){
+        return $this->belongsTo(Estado::class);
+    }
+
+    //funcion para la solicitud
+    public function solicitudes(){
+        return $this->hasMany(Solicitud::class);
+    }
+
+    //funcion para acceder a las solicitud_respuesta
+    public function solicitud_respuestas(){
+        return $this->hasMany(Solicitud_respuesta::class);
     }
 }

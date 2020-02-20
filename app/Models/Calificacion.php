@@ -16,6 +16,10 @@ class Calificacion extends Model
     ];
 
     public function usuario_oficios(){
-        return $this->hasMany(Usuario_oficio::class);
+        return $this->belongsTo(Usuario_oficio::class);
+    }
+
+    public function usuarios(){
+        return $this->belongsTo(Usuario::class);
     }
 }

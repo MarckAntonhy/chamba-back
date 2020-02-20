@@ -13,6 +13,10 @@ class Permiso extends Model
     ];
 
     public function roles(){
-        return $this->belongsTo(Rol::class,'permiso_rol');
+        return $this->belongsToMany(Rol::class,'permiso_rol');
+    }
+
+    public function estados(){
+        return $this->belongsTo(Estado::class)
     }
 }

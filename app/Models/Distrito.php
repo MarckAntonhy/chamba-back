@@ -12,8 +12,8 @@ class Distrito extends Model
         'descripcion'
     ];
 
-    public function departamentos(){
-        return $this->hasMany(Departamento::class);
+    public function provincias(){
+        return $this->belongsTo(Provincia::class);
     }
 
 }

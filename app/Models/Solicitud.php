@@ -15,11 +15,7 @@ class Solicitud extends Model
         'descripcion',
         'estado',
         'urgencia'
-    ]
-
-    public function usuarios(){
-        return $this->hasMany(Usuario::class);
-    }
+    ];
     public function oficios(){
         return $this->hasMany(Oficio::class);
     }
@@ -28,5 +24,10 @@ class Solicitud extends Model
     }
     public function estados(){
         return $this->belongsTo(Estado::class)
+    }
+
+    //funcion para la solicitud_respuesta
+    public function solicitudes(){
+        return $this->hasMany(Solicitud::class);
     }
 }

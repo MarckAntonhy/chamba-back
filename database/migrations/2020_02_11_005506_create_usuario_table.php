@@ -23,7 +23,8 @@ class CreateUsuarioTable extends Migration
             $table->string('genero',1);
             $table->string('telefono');
             $table->string('img',255);
-            $table->string('estado',1);
+            $table->unsignedBigInteger('id_estado');
+            $table->foreign('id_estado')->references('id')->on('estado');
             $table->unsignedBigInteger('id_distrito');
             $table->foreign('id_distrito')->references('id')->on('distrito');
             $table->unsignedBigInteger('id_rol');
