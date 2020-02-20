@@ -13,5 +13,10 @@ class Plan extends Model
         'hora',
         'precio',
         'cantidad'
-    ]
+    ];
+
+    public function estados(){
+        return $this->belongsTo(Estado::class);
+    }
+
 }

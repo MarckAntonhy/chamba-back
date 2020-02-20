@@ -26,4 +26,7 @@ class Solicitud extends Model
     public function distritos(){
         return $this->hasMany(Distrito::class);
     }
+    public function estados(){
+        return $this->belongsTo(Estado::class)
+    }
 }
