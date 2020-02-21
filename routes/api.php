@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/estado','EstadoController@create');
+Route::post('/departamento','DepartamentoController@create');
+Route::post('/provincia','ProvinciaController@create');
+Route::post('/distrito','DistritoController@create');
+Route::post('/usuario','UsuarioController@create');

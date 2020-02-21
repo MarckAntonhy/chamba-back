@@ -10,5 +10,5 @@ class Departamento extends Model
 
     public $fillable = [
         'descripcion'
-    ]
+    ];
 }

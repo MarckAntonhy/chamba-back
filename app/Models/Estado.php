@@ -10,5 +10,5 @@ class Estado extends Model
 
     public $fillable = [
         'descripcion'
-    ]
+    ];
 }

@@ -16,8 +16,8 @@ class CreateDistritoTable extends Migration
         Schema::create('distrito', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('descripcion');
-            $table->unsignedBigInteger('id_distrito');
-            $table->foreign('id_distrito')->references('id')->on('provincia');
+            $table->unsignedBigInteger('id_provincia');
+            $table->foreign('id_provincia')->references('id')->on('provincia');
             $table->timestamps();
         });
     }
