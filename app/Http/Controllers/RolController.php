@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Usuario;
 
 use Illuminate\Http\Request;
+use App\Models\Rol;
 
-class UsuarioController extends Controller
+class RolController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,21 +24,12 @@ class UsuarioController extends Controller
      */
     public function create(Request $request)
     {
-        $usuarios = new Usuario();
+        $roles = new Rol();
 
-        $usuarios->nombres = $request->input('nombres');
-        $usuarios->apellidos = $request->input('apellidos');
-        $usuarios->f_nacimiento = $request->input('f_nacimiento');
-        $usuarios->correo = $request->input('correo');
-        $usuarios->password = MD5($request->input('password'));
-        $usuarios->genero = $request->input('genero');
-        $usuarios->telefono = $request->input('telefono');
-        $usuarios->img = $request->input('img');
-        $usuarios->id_estado = $request->input('id_estado');
-        $usuarios->id_distrito = $request->input('id_distrito');
-        $usuarios->id_rol = $request->input('id_rol');
-        $usuarios->save();
-        return response()->json($usuarios);
+        $roles->descripcion = $request->input('descripcion');
+
+        $roles->save();
+        return response()->json($roles);
     }
 
     /**

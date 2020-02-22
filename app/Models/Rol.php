@@ -10,9 +10,9 @@ class Rol extends Model
 
     public $fillable = [
         'descripcion'
-    ]
+    ];
 
-    public function roles(){
+    public function usuarios(){
         return $this->hasMany(Usuario::class);
     }
 }

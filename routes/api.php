@@ -21,4 +21,5 @@ Route::post('/estado','EstadoController@create');
 Route::post('/departamento','DepartamentoController@create');
 Route::post('/provincia','ProvinciaController@create');
 Route::post('/distrito','DistritoController@create');
+Route::post('/rol','RolController@create');
 Route::post('/usuario','UsuarioController@create');
