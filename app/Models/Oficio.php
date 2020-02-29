@@ -9,10 +9,13 @@ class Oficio extends Model
     public $table = 'oficio';
 
     public $fillable = [
-        'descripcion'
-    ]
+        'descripcion',
+        'img',
+        'id_estado'
+    ];
+
     public function estados(){
-        return $this->belongsTo(Estado::class)
+        return $this->belongsTo(Estado::class);
     }
 
     public function usuarios(){
