@@ -18,4 +18,8 @@ class Suboficio extends Model
     public function estados(){
         return $this->belongsTo(Estado::class);
     }
+
+    public function oficios(){
+        return $this->belongsTo(Oficio::class);
+    }
 }

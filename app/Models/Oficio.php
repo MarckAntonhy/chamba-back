@@ -22,7 +22,4 @@ class Oficio extends Model
         return $this->belongsToMany(Usuario::class, 'usuario_oficio');
     }
     
-    public function suboficios(){
-        return $this->hasMany(Suboficio::class);
-    }
 }
