@@ -25,7 +25,7 @@ class OficioController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -81,6 +81,6 @@ class OficioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
     }
 }
