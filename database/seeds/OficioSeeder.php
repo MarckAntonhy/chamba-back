@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
-class OficioTableSeeder extends Seeder
+class OficioSeeder extends Seeder
 {
     /**
      * Run the database seeds.
