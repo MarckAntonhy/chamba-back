@@ -15,6 +15,6 @@ class OficioController extends Controller
             ->select('oficio.*', 'estado.descripcion as Estado')
             ->get();
 
-        return $users;
+        return response()->json(array("status" => 200, "response" => $users));
     }
 }
