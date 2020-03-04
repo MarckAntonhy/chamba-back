@@ -16,13 +16,6 @@ class SuboficioController extends Controller
     public function index()
     {
         //listar subcategorias por id creo XD
-        $suboficios = DB::table('suboficio')
-        ->join('oficio','oficio.id','=','suboficio.id_oficio')
-        ->select('suboficio.descripcion')
-        ->where('id_oficio','=',1)
-        ->get();
-
-        return response()->json(array("status"=>200,"response"=>$suboficios));
     }
 
     /**
@@ -54,6 +47,14 @@ class SuboficioController extends Controller
      */
     public function show($id)
     {
+        $suboficios = DB::table('suboficio')
+        ->join('oficio','oficio.id','=','suboficio.id_oficio')
+        ->select('suboficio.descripcion')
+        ->where('id_oficio','=',$id)
+        ->get();
+
+        return response()->json(array("status"=>200,"response"=>$suboficios));
+
     }
 
     /**
