@@ -15,11 +15,14 @@ class SuboficioController extends Controller
      */
     public function index()
     {
-        // $suboficios = DB::table('suboficio')
-        // ->select('select * from suboficio where id = :id',['id'=>1])
-        // ->get();
+        //listar subcategorias por id creo XD
+        $suboficios = DB::table('suboficio')
+        ->join('oficio','oficio.id','=','suboficio.id_oficio')
+        ->select('suboficio.descripcion')
+        ->where('id_oficio','=',1)
+        ->get();
 
-        // return response()->json(array("status"=>200,"response"=>$suboficios));
+        return response()->json(array("status"=>200,"response"=>$suboficios));
     }
 
     /**
