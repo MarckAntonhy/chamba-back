@@ -29,7 +29,7 @@ class EstadoController extends Controller
         $estados->descripcion = $request->input('descripcion');
 
         $estados->save();
-        return response()->json($estados);
+        return response()->json(array("status"=>200,"response"=>$estados));
     }
 
     /**

@@ -24,3 +24,5 @@ Route::post('/distrito','DistritoController@create');
 Route::post('/rol','RolController@create');
 Route::post('/usuario','UsuarioController@create');
 Route::get('/oficio','OficioController@index');
+Route::put('/usuario/{id}','UsuarioController@update');
+// Route::get('/suboficio','SuboficioController@index');
