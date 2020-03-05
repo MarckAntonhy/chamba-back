@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class SuboficioTableSeeder extends Seeder
 {
@@ -11,7 +12,7 @@ class SuboficioTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('suboficio')->delete();
+        DB::table('suboficio')->truncate();
         DB::table('suboficio')->insert([
             [
                 'id' => 1,

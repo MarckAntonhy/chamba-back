@@ -12,15 +12,18 @@ class RolTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('rol')->truncate();
+        DB::table('rol')->delete();
         DB::table('rol')->insert([
             [
+                'id' => 1,
                 'descripcion' => 'usuario'
             ],
             [
+                'id' => 2,
                 'descripcion' => 'admin'
             ],
             [
+                'id' => 3,
                 'descripcion' => 'proveedor'
             ]
         ]);
