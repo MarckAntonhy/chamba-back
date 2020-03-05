@@ -11,12 +11,12 @@ class EstadoTableSeeder extends Seeder
      */
     public function run()
     {
-        //DB::table('estado')->delete();
+        DB::table('estado')->delete();
         DB::table('estado')->insert([
-            //[
-                //'id' = 1,
-                //'descripcion' => 'activo'
-            //],
+            [
+                'id' => 1,
+                'descripcion' => 'activo',
+            ],
             [
                 'id' => 2,
                 'descripcion' => 'inactivo',

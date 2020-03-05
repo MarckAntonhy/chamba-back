@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Departamento;
+use App\Models\Provincia;
+use App\Models\Distrito;
 use Illuminate\Http\Request;
-use App\Models\Rol;
+use Illuminate\Support\Facades\DB;
 
-class RolController extends Controller
+class DireccionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,14 +25,9 @@ class RolController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        $roles = new Rol();
-
-        $roles->descripcion = $request->input('descripcion');
-
-        $roles->save();
-        return response()->json(array("status"=>200,"response"=>$roles));
+        //
     }
 
     /**
@@ -49,9 +47,20 @@ class RolController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($descripcion)
     {
-        //
+        $direcciones = DB::table('distrito')
+        ->join('provincia','provincia.id','=','distrito.id_provincia')
+        ->join('departamento','departamento.id','=','provincia.id_departamento')
+        // ->select(DB::raw("CONCAT('departamento.descripcion',' ','provincia.descripcion',' ','distrito.descripcion')"))
+        ->select('departamento.descripcion as departamento','provincia.descripcion as provincia','distrito.descripcion as distrito')
+        // ->where(DB::raw("CONCAT('departamento.descripcion',' ','provincia.descripcion',' ','distrito.descripcion')"),'LIKE',"%$descripcion%")
+        ->Where('departamento.descripcion','LIKE',"%$descripcion%")
+        ->orWhere('provincia.descripcion','LIKE',"%$descripcion%")
+        ->orWhere('distrito.descripcion','LIKE',"%$descripcion%")
+        ->get();
+
+        return response()->json(array("status"=>200,"response"=>$direcciones));
     }
 
     /**
