@@ -52,11 +52,15 @@ class DireccionController extends Controller
         $direcciones = DB::table('distrito')
         ->join('provincia','provincia.id','=','distrito.id_provincia')
         ->join('departamento','departamento.id','=','provincia.id_departamento')
-        ->select('distrito.descripcion')
-        ->where('distrito.descripcion','LIKE',"%$descripcion%")
+        // ->select(DB::raw("CONCAT('departamento.descripcion',' ','provincia.descripcion',' ','distrito.descripcion')"))
+        ->select('departamento.descripcion as departamento','provincia.descripcion as provincia','distrito.descripcion as distrito')
+        // ->where(DB::raw("CONCAT('departamento.descripcion',' ','provincia.descripcion',' ','distrito.descripcion')"),'LIKE',"%$descripcion%")
+        ->Where('departamento.descripcion','LIKE',"%$descripcion%")
+        ->orWhere('provincia.descripcion','LIKE',"%$descripcion%")
+        ->orWhere('distrito.descripcion','LIKE',"%$descripcion%")
         ->get();
 
-        return response()->json(array("status"=>200,"response"=>$descripcion));
+        return response()->json(array("status"=>200,"response"=>$direcciones));
     }
 
     /**
