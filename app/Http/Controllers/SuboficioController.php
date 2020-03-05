@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Suboficio;
 use Illuminate\Http\Request;
-use App\Models\Rol;
+use Illuminate\Support\Facades\DB;
 
-class RolController extends Controller
+class SuboficioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,7 @@ class RolController extends Controller
      */
     public function index()
     {
-        //
+        //listar subcategorias por id creo XD
     }
 
     /**
@@ -22,14 +23,9 @@ class RolController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        $roles = new Rol();
-
-        $roles->descripcion = $request->input('descripcion');
-
-        $roles->save();
-        return response()->json(array("status"=>200,"response"=>$roles));
+        //
     }
 
     /**
@@ -51,7 +47,14 @@ class RolController extends Controller
      */
     public function show($id)
     {
-        //
+        $suboficios = DB::table('suboficio')
+        ->join('oficio','oficio.id','=','suboficio.id_oficio')
+        ->select('suboficio.descripcion')
+        ->where('id_oficio','=',$id)
+        ->get();
+
+        return response()->json(array("status"=>200,"response"=>$suboficios));
+
     }
 
     /**

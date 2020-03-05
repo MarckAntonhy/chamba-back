@@ -44,8 +44,9 @@ class UsuarioController extends Controller
         $usuarios->id_estado = $request->input('id_estado');
         $usuarios->id_distrito = $request->input('id_distrito');
         $usuarios->id_rol = $request->input('id_rol');
-        $usuarios->save();
-        return response()->json($usuarios);
+        if($usuarios->save()){
+            return response()->json(array("status"=>200,"response"=>$usuarios));
+        };
     }
 
     /**
@@ -90,7 +91,19 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $usuarios = Usuario::find($id);
+        $usuarios->nombres = $request->input('nombres');
+        // $usuarios->apellidos = $request->input('apellidos');
+        // $usuarios->f_nacimiento = $request->input('f_nacimiento');
+        // $usuarios->correo = $request->input('correo');
+        // $usuarios->password = MD5($request->input('password'));
+        // $usuarios->genero = $request->input('genero');
+        // $usuarios->telefono = $request->input('telefono');
+        // $usuarios->img = $request->input('img');
+        if($usuarios->save()){
+            return response()->json(array("status"=>200,"response"=>$usuarios));
+        }
+        
     }
 
     /**
