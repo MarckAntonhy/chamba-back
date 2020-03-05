@@ -16,7 +16,7 @@ class DepartamentoTableSeeder extends Seeder
         DB::table('departamento')->insert([
             [
                 'id'=>1,
-                'descripcion' => 'Amazonas',
+                'descripcion' => 'Sin Especificar',
             ],
             [
                 'id'=>2,

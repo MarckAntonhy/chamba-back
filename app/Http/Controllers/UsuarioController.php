@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Usuario;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UsuarioController extends Controller
 {
@@ -12,9 +13,15 @@ class UsuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function login(Request $request)
     {
-        //
+        $usuario = $request->input('usuario');
+        $contraseña = MD5($request->input('contraseña'));
+
+        $result = DB::table('usuario')
+        ->select('usuario.*')
+        ->where('correo','=',$usuario)
+        ->where('password','=', $contraseña);
     }
 
     /**
@@ -47,9 +54,9 @@ class UsuarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function ingresar(Request $request)
     {
-        //
+        $usuario = DB::query()
     }
 
     /**

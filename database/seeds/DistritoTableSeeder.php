@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DistritoTableSeeder extends Seeder
 {
@@ -13,6 +14,11 @@ class DistritoTableSeeder extends Seeder
     {
         DB::table('distrito')->delete();
         DB::table('distrito')->insert([
+            [
+                'id' => 1,
+                'descripcion' => 'Sin Especificar',
+                'id_provincia' => 1,
+            ],
             //Trujillo
             [
                 'id' => 130101,
