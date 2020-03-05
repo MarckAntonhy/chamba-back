@@ -19,10 +19,15 @@ class UsuarioController extends Controller
         $contraseña = MD5($request->input('contraseña'));
 
         $result = DB::table('usuario')
-        ->select('usuario.*')
+        ->select('usuario.*','distrito.descripcion as distrito', 'rol.descripcion as rol')
+        ->join('distrito','distrito.id','=','usuario.id_distrito')
+        ->join('rol','rol.id','=','usuario.id_rol')
         ->where('correo','=',$usuario)
-        ->where('password','=', $contraseña);
+        ->where('password','=', $contraseña)->get();
+
+        return json_encode(array("status" => 200, "responser" => $result));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -49,23 +54,7 @@ class UsuarioController extends Controller
         };
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function ingresar(Request $request)
-    {
-        $usuario = DB::query()
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //

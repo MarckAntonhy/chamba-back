@@ -5,7 +5,7 @@
 -php artisan migrate
 -php artisan db:seed
 -en caso de que las migraciones no corran y salga un error de class not found, ejecutar
--composer dump_autoload
+-composer dump-autoload
 
 ## Servicio:
 http://chamba-back.test/api/oficio :Para listar los oficios
