@@ -18,13 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/estado','EstadoController@create');
-Route::post('/departamento','DepartamentoController@create');
-Route::post('/provincia','ProvinciaController@create');
-Route::post('/distrito','DistritoController@create');
-Route::post('/rol','RolController@create');
 Route::post('/usuario','UsuarioController@create');
 Route::post('/usuario/login','UsuarioController@login');
 Route::get('/oficio','OficioController@index');
-Route::put('/usuario/{id}','UsuarioController@update');
-Route::get('/suboficio/{id}','SuboficioController@show');
+Route::put('/usuario/editar/{id}','UsuarioController@update');
+Route::get('/oficio/{id}','SuboficioController@show');
 Route::get('/direccion/{descripcion}','DireccionController@show');
