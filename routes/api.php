@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,7 +21,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/estado','EstadoController@create');
 Route::post('/usuario','UsuarioController@create');
 Route::post('/usuario/login','UsuarioController@login');
-Route::get('/oficio','OficioController@index');
+Route::get('/oficio', array('middleware' => 'cors', 'uses' => 'OficioController@index'));
 Route::put('/usuario/editar/{id}','UsuarioController@update');
 Route::get('/oficio/{id}','SuboficioController@show');
 Route::get('/direccion/{descripcion}','DireccionController@show');
+
