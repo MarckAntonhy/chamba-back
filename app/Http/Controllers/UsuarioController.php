@@ -23,7 +23,8 @@ class UsuarioController extends Controller
         ->join('distrito','distrito.id','=','usuario.id_distrito')
         ->join('rol','rol.id','=','usuario.id_rol')
         ->where('correo','=',$usuario)
-        ->where('password','=', $contraseña)->get();
+        ->where('password','=', $contraseña)
+        ->get();
 
         return json_encode(array("status" => 200, "responser" => $result));
     }
