@@ -1,5 +1,5 @@
 ## Registro
-Url: http://chamba-back.test/api/usuario
+Url: http://chamba-back.test/api/usuario/create
 Metodo: POST
 Json a Enviar:
 {

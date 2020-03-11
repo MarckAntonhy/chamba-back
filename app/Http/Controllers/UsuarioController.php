@@ -17,7 +17,8 @@ class UsuarioController extends Controller
     {
         $usuario = $request->input('usuario');
         $contraseña = MD5($request->input('contraseña'));
-
+        // dd($contraseña);
+        // die();
         $result = DB::table('usuario')
         ->select('usuario.*','distrito.descripcion as distrito', 'rol.descripcion as rol')
         ->join('distrito','distrito.id','=','usuario.id_distrito')
@@ -58,7 +59,14 @@ class UsuarioController extends Controller
 
     public function show($id)
     {
-        //
+        $usuarios = DB::table('usuario')
+        ->select('usuario.nombres as Nombres','usuario.apellidos as Apellidos','usuario.f_nacimiento as Fecha de Nacimiento',
+                 'usuario.correo as Correo','usuario.genero as Genero','usuario.telefono as Telefono',
+                 'usuario.img as Imagen')
+        ->Where('usuario.id','=',"$id")
+        ->get();
+
+        return response()->json(array("status"=>200,"response"=>$usuarios));
     }
 
     /**
