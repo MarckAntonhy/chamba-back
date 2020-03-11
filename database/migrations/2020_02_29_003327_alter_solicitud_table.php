@@ -14,6 +14,7 @@ class AlterSolicitudTable extends Migration
     public function up()
     {
         Schema::table('solicitud', function (Blueprint $table) {
+            $table->dropColumn('direccion');
             $table->string('titulo')->after('id');
         });
     }
@@ -26,7 +27,8 @@ class AlterSolicitudTable extends Migration
     public function down()
     {
         Schema::table('solicitud', function (Blueprint $table) {
-            //
+            $table->string('direccion');
+            $table->dropColumn('titulo');
         });
     }
 }

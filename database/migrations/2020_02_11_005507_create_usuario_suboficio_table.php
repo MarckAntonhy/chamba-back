@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsuarioOficioTable extends Migration
+class CreateUsuarioSuboficioTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateUsuarioOficioTable extends Migration
      */
     public function up()
     {
-        Schema::create('usuario_oficio', function (Blueprint $table) {
+        Schema::create('usuario_suboficio', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('id_usuario');
             $table->foreign('id_usuario')->references('id')->on('usuario');
-            $table->unsignedBigInteger('id_oficio');
-            $table->foreign('id_oficio')->references('id')->on('oficio');
+            $table->unsignedBigInteger('id_suboficio');
+            $table->foreign('id_suboficio')->references('id')->on('suboficio');
             $table->unsignedBigInteger('id_estado');
             $table->foreign('id_estado')->references('id')->on('estado');
             $table->timestamps();
@@ -32,6 +32,6 @@ class CreateUsuarioOficioTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usuario_oficio');
+        Schema::dropIfExists('usuario_suboficio');
     }
 }
