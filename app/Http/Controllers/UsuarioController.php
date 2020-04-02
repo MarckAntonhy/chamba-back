@@ -15,15 +15,15 @@ class UsuarioController extends Controller
      */
     public function login(Request $request)
     {
-        $usuario = $request->input('usuario');
-        $contraseña = MD5($request->input('contraseña'));
+        $usuario = $request->input('correo');
+        $contraseña = MD5($request->input('password'));
         // dd($contraseña);
         // die();
         $result = DB::table('usuario')
         ->select('usuario.*','distrito.descripcion as distrito', 'rol.descripcion as rol')
         ->join('distrito','distrito.id','=','usuario.id_distrito')
         ->join('rol','rol.id','=','usuario.id_rol')
-        ->where('correo','=',$usuario)
+        ->where('correo', '=', $usuario)
         ->where('password','=', $contraseña)
         ->get();
 
