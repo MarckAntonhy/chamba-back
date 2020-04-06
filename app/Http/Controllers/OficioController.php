@@ -17,4 +17,17 @@ class OficioController extends Controller
 
         return response()->json(array("status" => 200, "response" => $users));
     }
+
+    public function categoryO($id){
+        //$categoria = $request->input('categoria');
+        $usersO = DB::table('usuario')
+            ->select('usuario.nombres','oficio.descripcion')
+            ->join('usuario_suboficio','usuario.id','=','usuario_suboficio.id_usuario')
+            ->join('suboficio','usuario_suboficio.id_suboficio','=','suboficio.id')
+            ->join('oficio','suboficio.id_oficio','=','oficio.id')
+            ->where('oficio.id','=',$id)
+            ->get();
+
+        return response()->json(array("status" => 200, "response" => $usersO));
+    }
 }
