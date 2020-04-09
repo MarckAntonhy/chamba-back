@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        //descomentar las llamadas a los seeders de las tablas
+        // descomentar las llamadas a los seeders de las tablas
         $this->call(EstadoTableSeeder::class);
         $this->call(OficioTableSeeder::class);
         $this->call(DepartamentoTableSeeder::class);

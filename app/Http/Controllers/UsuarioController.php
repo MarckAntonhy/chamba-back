@@ -15,19 +15,23 @@ class UsuarioController extends Controller
      */
     public function login(Request $request)
     {
-        $usuario = $request->input('correo');
-        $contraseña = MD5($request->input('password'));
-        // dd($contraseña);
+        $correo = $request->input('correo');
+        $password = MD5($request->input('password'));
+        // dd($password);
         // die();
         $result = DB::table('usuario')
         ->select('usuario.*','distrito.descripcion as distrito', 'rol.descripcion as rol')
         ->join('distrito','distrito.id','=','usuario.id_distrito')
         ->join('rol','rol.id','=','usuario.id_rol')
-        ->where('correo', '=', $usuario)
-        ->where('password','=', $contraseña)
+        ->where('correo','=',$correo)
+        ->where('password','=', $password)
         ->get();
+        if ($result->count()>0) {
+            return json_encode(array("status" => 200, "responser" => $result));
+        }else {
+            return json_encode(array("status" => 404, "responser" => "User not found"));
+        }
 
-        return json_encode(array("status" => 200, "responser" => $result));
     }
 
 

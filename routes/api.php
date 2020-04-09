@@ -26,4 +26,5 @@ Route::get('/oficio', array('middleware' => 'cors', 'uses' => 'OficioController@
 Route::put('/usuario/editar/{id}','UsuarioController@update');
 Route::get('/oficio/{id}','SuboficioController@show');
 Route::get('/direccion/{descripcion}','DireccionController@show');
+Route::get('/categoria/{id}','OficioController@categoryO');
 

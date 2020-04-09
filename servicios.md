@@ -61,6 +61,10 @@ Json a enviar:
 	"descripcion":"activo"
 }
 
+## Listar categoria por id y usuarios relacionados
+Url: http://chamba-back.test/api/categoria/1
+Método: GET
+
 
 
 
