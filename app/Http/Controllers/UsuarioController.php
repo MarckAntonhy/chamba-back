@@ -51,9 +51,25 @@ class UsuarioController extends Controller
         $usuarios->id_estado = $request->input('id_estado');
         $usuarios->id_distrito = $request->input('id_distrito');
         $usuarios->id_rol = $request->input('id_rol');
-        if($usuarios->save()){
-            return response()->json(array("status"=>200,"response"=>$usuarios));
-        };
+
+
+        $query = DB::table('usuario')
+        ->select('usuario.*')
+        ->where('usuario.correo','=',"$usuarios->correo")
+        ->get();
+
+        if(count($query) == 0){
+            if($usuarios->save()){
+                return response()->json(array("status"=>200,"response"=>$usuarios));
+            };
+        }
+        else{
+            return json_encode(array(
+                "status" => 201,
+                "mensaje" => "Ya existe una cuenta con el correo electronico"
+            ));
+        }
+
     }
 
 
