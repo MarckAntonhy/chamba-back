@@ -27,9 +27,9 @@ class UsuarioController extends Controller
         ->where('password','=', $password)
         ->get();
         if ($result->count()>0) {
-            return json_encode(array("status" => 200, "responser" => $result));
+            return json_encode(array("status" => 200, "response" => $result));
         }else {
-            return json_encode(array("status" => 404, "responser" => "User not found"));
+            return json_encode(array("status" => 404, "response" => "User not found"));
         }
 
     }
