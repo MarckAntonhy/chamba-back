@@ -21,8 +21,8 @@ class CreateCalificacionTable extends Migration
             $table->time('h_comentario');
             $table->unsignedBigInteger('id_usuario');
             $table->foreign('id_usuario')->references('id')->on('usuario');
-            $table->unsignedBigInteger('id_usuario_oficio');
-            $table->foreign('id_usuario_oficio')->references('id')->on('usuario_oficio');
+            $table->unsignedBigInteger('id_usuario_suboficio');
+            $table->foreign('id_usuario_suboficio')->references('id')->on('usuario_suboficio');
             $table->timestamps();
         });
     }
