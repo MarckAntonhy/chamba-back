@@ -12,7 +12,15 @@ class OficioController extends Controller
     {
         $users = DB::table('oficio')
             ->join('estado', 'oficio.id_estado', '=', 'estado.id')
-            ->select('oficio.*', 'estado.descripcion as Estado')
+            ->select(
+                        'oficio.id as categoryID'
+                        ,'oficio.id'
+                        ,'oficio.descripcion as categoryName' 
+                        ,'oficio.descripcion' 
+                        ,'oficio.icono as categoryIconName'
+                        ,'oficio.img'
+                        ,'oficio.img as categoryImageName'
+                        ,'estado.descripcion as Estado')
             ->get();
 
         return response()->json(array("status" => 200, "response" => $users));
